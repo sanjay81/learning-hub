@@ -1,0 +1,161 @@
+Brillo OS - Successfully Flashing
+
+I wrote an Instructions, i hope i doesnt forget any steps.....
+
+ 
+
+    I compile it with Ubuntu 14.10 64 bit as VM on Windows 10
+    first i establish a Build environment, like here : Establishing a Build Environment | Android Open Source Project
+    Install Repo : Downloading the Source | Android Open Source Project --> at step "repo init" you take the brillo source : 
+
+-->
+
+    repo init -u https://android.googlesource.com/brillo/manifest/  
+
+ 
+
+    	4.repo sync  
+
+	5. source build/envsetup.sh  
+
+ 	6.lunch  
+
+ 	7. Choose " edison-eng "
+
+	8.make  
+
+ 
+
+      - i get a few errors, first it doesnt find some files p.e. the wifi driver and bluetooth, i download them at git (after i google them ) after that it works without problems
+
+ 
+
+ 
+
+       9. The ".img" files at the "out" folder i flashed them with Intel Phone Flash Tool in Windows, in Ubuntu it doesnt work for me.
+
+ 
+
+Here is the Result: check in outtput folder
+
+
+
+It would be of great help if you explain in brief how you managed to flash the *.img brillo images to Edison?
+
+I tried using the steps for fastboot
+
+flash_tools/brillo-flashall-edison.sh - device/intel/edison - Git at Google
+
+ut bootloader was not built from Brillo sources-boot-edison.bin.
+
+######
+
+booting
+
+    sudo apt-get update  
+
+ 
+
+Install Java 7 sdk
+
+    $ sudo apt-get install openjdk-7-jdk  
+
+ 
+
+Install some required Packages
+
+    $ sudo apt-get install git-core gnupg flex bison gperf build-essential \  
+      zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 \  
+      lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache \  
+      libgl1-mesa-dev libxml2-utils xsltproc unzip  
+
+And some more
+
+sudo apt-get install qt5-qmake
+
+ 
+
+USB Access to Android Devices -->> change <username> to your own
+
+    $ wget -S -O - http://source.android.com/source/51-android.rules | sed "s/<username>/$USER/" | sudo tee >/dev/null /etc/udev/rules.d/51-android.rules; sudo udevadm control --reload-rules  
+
+ 
+
+    "Get the source"
+
+ 
+
+Make in Home Directory a Folder "bin" and included him in your path
+
+    $ mkdir ~/bin  
+    $ PATH=~/bin:$PATH  
+
+ 
+
+        Get "Repo tool" and rights to yourself
+
+    $ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo  
+    $ chmod a+x ~/bin/repo  
+
+
+Build "Working Directory" and "go in"
+
+    $ mkdir brillo  
+      
+    $ cd brillo  
+
+ 
+
+"Initialize Repo"
+
+    $ repo init -u https://android.googlesource.com/brillo/manifest  
+    $ repo sync  
+
+
+--> Drink Coffee --> you have a "few" minutes
+
+ 
+
+    Building
+
+
+"Initialize + lunch + make"
+
+    $ source build/envsetup.sh  
+    $ lunch edison-eng  
+
+ 
+
+--> go to the Path ~/brillo/tools/bdk/brunch/
+
+    $ ./brunch bsp install edison  
+
+ 
+
+--> from Path ~/brillo -->
+
+    $ make  
+
+--> Coffee or go to bed ^^ (6hr later......)
+
+in the ~/brillo/out/target/product/edison folder there are a now few .img and .bin files
+
+ 
+
+    Flash
+
+ 
+
+After compile, you could get some files(totally, 19 files). The followings are required files to flash.
+
+    boot.img, cache.img, ramdisk.img, recovery.img, system.img, userdata.img, gpt.bin
+    edison_dnx_fwr.bin, edison_dnx_osr.bin, edison_ifwi-dbg-00.bin ~ edison_ifwi-dbg-06.bin
+    u-boot-edison.bin, u-boot-edison.img
+    FlashEdison.json
+
+To flash these, you have to move above all files in one folder. And open your Phone Flash Tool Lite in windows.
+
+Then you can see success message.
+
+--> done 
+

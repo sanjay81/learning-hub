@@ -1,0 +1,37 @@
+http://raspberrypi.stackexchange.com/questions/10489/how-does-raspberry-pi-boot -> booting process
+
+https://wolfpaulus.com/journal/embedded/raspberrypi_boot/ ->booting process
+
+https://www.raspberrypi.org/downloads ->noops dowanload
+$$$$$$$$$$$$$$
+
+make -j4 zImage modules dtbs
+sudo make modules_install
+sudo cp arch/arm/boot/dts/*.dtb /boot/
+sudo cp arch/arm/boot/dts/overlays/*.dtb* /boot/overlays/
+sudo cp arch/arm/boot/dts/overlays/README /boot/overlays/
+sudo scripts/mkknlimg arch/arm/boot/zImage /boot/$KERNEL.img
+
+sudo make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- INSTALL_MOD_PATH=mnt/ext4 modules_install
+
+#####  Debug 
+
+	https://www.kernel.org/doc/Documentation/dynamic-debug-howto.txt
+#### device tree in Raspberry
+
+	https://www.raspberrypi.org/documentation/configuration/device-tree.md
+# rpi firmware 
+	
+	
+ Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.txt              
+ Documentation/devicetree/bindings/misc/brcm,bcm2835-smi-dev.txt         
+ Documentation/devicetree/bindings/misc/brcm,bcm2835-smi.txt             
+ Documentation/devicetree/bindings/mtd/brcm,bcm2835-smi-nand.txt         
+ Documentation/devicetree/bindings/sound/brcm,bcm2835-i2s.txt            
+ Documentation/video4linux/bcm2835-v4l2.txt
+
+
+### How to set up Raspberry Pi without a monitor?
+
+	http://raspberrypi.stackexchange.com/questions/14611/how-to-set-up-raspberry-pi-without-a-monitor
+	http://raspberrypi.stackexchange.com/questions/15192/installing-raspbian-from-noobs-without-display

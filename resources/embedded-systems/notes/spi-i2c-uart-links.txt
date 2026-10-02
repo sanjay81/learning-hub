@@ -1,0 +1,19 @@
+http://dlnware.com/theory/SPI-Transfer-Modes -> spi bus
+
+http://ee.hawaii.edu/~tep/EE491E/Notes/HC11A8/HC11A8_SPI.pdf -> spi by motorola
+
+http://www.eeherald.com/section/design-guide/esmod12.html -> spi details 
+
+http://web.engr.oregonstate.edu/~traylor/ece473/lectures/spi.pdf  ->spi register
+
+http://www.i2c-bus.org/level-shifting/  -> i2c ,10 bit ,arbitartion
+
+http://www.nxp.com/documents/user_manual/UM10204.pdf -> i2c by philips
+
+http://www.byteparadigm.com/applications/introduction-to-i2c-and-spi-protocols/ -> diffrence between i2c & spi
+
+https://learn.sparkfun.com/tutorials/serial-communication -> UART
+
+http://www.ti.com/lit/ug/sprugp1/sprugp1.pdf -> UART bY texes
+
+

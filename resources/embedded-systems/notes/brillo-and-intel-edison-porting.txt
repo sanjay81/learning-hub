@@ -1,0 +1,106 @@
+References
+
+1)https://source.android.com/source/downloading.html
+2)https://developers.google.com/brillo/docs/reference/downloads
+3)http://www.cnx-software.com/2015/11/23/how-to-build-and-run-brillo-operating-system-from-source-code/
+4)http://www.businesscloudnews.com/2015/05/29/googles-iot-land-grab-will-brillo-help-or-hinder/ -details about iot
+5)http://liliputing.com/2015/10/google-launches-android-based-brillo-os-for-internet-of-things.html -details about brillo os internal part
+6)http://www.intel.com/content/www/us/en/search.html?toplevelcategory=none&keyword=brillo+os+with+intel+edison --about flashing os and error go below link. 
+
+https://communities.intel.com/thread/96539?wapkw=brillo+os+with+intel+edison
+
+https://communities.intel.com/thread/97385?wapkw=brillo+os+with+intel+edison
+
+
+################  .......................###########
+how to port brillo os on itel edison board :-
+############.................##############
+Update Ubuntu
+$ sudo apt-get update  
+ 
+Install Java 7 sdk
+$ sudo apt-get install openjdk-7-jdk  
+ 
+Install some required Packages
+$ sudo apt-get install git-core gnupg flex bison gperf build-essential \  
+  zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 \  
+  lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache \  
+  libgl1-mesa-dev libxml2-utils xsltproc unzip  
+And some more
+sudo apt-get install qt5-qmake
+ 
+USB Access to Android Devices -->> change <username> to your own
+$ wget -S -O - http://source.android.com/source/51-android.rules | sed "s/<username>/$USER/" | sudo tee >/dev/null /etc/udev/rules.d/51-android.rules; sudo udevadm control --reload-rules  
+ 
+"Get the source"
+ 
+Make in Home Directory a Folder "bin" and included him in your path
+$ mkdir ~/bin  
+$ PATH=~/bin:$PATH  
+ 
+        Get "Repo tool" and rights to yourself
+$ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo  
+$ chmod a+x ~/bin/repo  
+
+Build "Working Directory" and "go in"
+$ mkdir brillo  
+  
+$ cd brillo  
+ 
+"Initialize Repo"
+$ repo init -u https://android.googlesource.com/brillo/manifest  
+$ repo sync  
+
+--> Drink Coffee  --> you have a "few" minutes
+ 
+Building
+
+"Initialize + lunch + make"
+$ source build/envsetup.sh  
+$ lunch edison-eng  
+ 
+--> go to the Path ~/brillo/tools/bdk/brunch/
+$ ./brunch bsp install edison  
+ 
+--> from Path ~/brillo -->
+$ make  
+--> Coffee or go to bed ^^ (6hr later......)
+in the ~/brillo/out/target/product/edison folder there are a now few .img and .bin files
+ 
+Flash
+ 
+--> I flash my Edison in windows, becaus i cant install the Intel Flash tool lite in my Linux
+--> first i load the Json file from here --> flash_tools - device/intel/edison - Git at Google
+--> and the IFWI files from my brillo folder (search it)
+---> i do the hole files include all .img and .bin files the json file and IFWi files in one folder
+Open the Intel Flash tool lite and load the Json File --> choose " Full" and flash
+ 
+--> done 
+
+###########.................###########
+Establishing a Build Environment :-
+
+https://source.android.com/source/initializing.html
+
+Downloading the Source andriod 
+
+https://source.android.com/source/downloading.html
+
+path for IFWI files and u-boot-edison
+~/new/vendor/bsp/intel/edison
+
+*************************************************
+Note: copy all .bin and .img files into /path to os/device/intel/edison/flash_tools/
+***************************************************
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+first i load the Json file from here --> flash_tools - device/intel/edison - Git at Google
+
+--> and the IFWI files from my brillo folder (search it)
+
+---> i do the hole files include all .img and .bin files the json file and IFWi files in one folder
+
+Open the Intel Flash tool lite and load the Json File --> choose " Full" and flash
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+https://communities.intel.com/thread/67277?start=0&tstart=0 ---------> flash error
+

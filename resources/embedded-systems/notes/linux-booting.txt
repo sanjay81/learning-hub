@@ -1,0 +1,23 @@
+Linux Booting Process: A step by step tutorial for understanding Linux boot sequence
+
+	http://www.slashroot.in/linux-booting-process-step-step-tutorial-understanding-linux-boot-sequence
+
+
+Booting a Self-Signed Linux Kernel
+
+	https://www.linux.com/blog/booting-self-signed-linux-kernel
+
+Compare LILO and GRUB
+	
+	http://www.conceptsimplified.com/compare/compare-lilo-and-grub/
+
+
+########  booting without hdmi on raspberry pi
+
+	http://raspberrypi.stackexchange.com/questions/15192/installing-raspbian-from-noobs-without-display
+
+
+Raspberry pi3 board is up and running with linux rasbian.
+
+Serial terminal issue is fixed. 
+Modification: add line core_freq=250 in config.txt 
