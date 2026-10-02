@@ -9,9 +9,9 @@ A single place for embedded-systems references and hands-on Git workflow exercis
 
 ## Repository origins
 
-This hub combines material from [IMPORTANT_LINKS](https://github.com/sanjay81/IMPORTANT_LINKS) and [DMAWorkbook](https://github.com/sanjay81/DMAWorkbook). It also consolidates the account's `github_acttion`, `work_2024`, and `devops` repositories. Those three repositories were checked and had no branches or tracked files, so there was no additional content to import. The `github_acttion` spelling is the actual GitHub repository name; no exact `github_action` repository exists under this account.
+This hub consolidates [IMPORTANT_LINKS](https://github.com/sanjay81/IMPORTANT_LINKS), [DMAWorkbook](https://github.com/sanjay81/DMAWorkbook), [github_acttion](https://github.com/sanjay81/github_acttion), [work_2024](https://github.com/sanjay81/work_2024), and [devops](https://github.com/sanjay81/devops). `github_acttion` is the actual GitHub spelling; no exact `github_action` or `devop` repository exists under this account. The `github_acttion`, `work_2024`, and `devops` repos were empty and had no files to import. See [the import manifest](IMPORT_MANIFEST.md) for source commit IDs, included files, and empty-repo details.
 
-The original `IMPORTANT_LINKS` and `DMAWorkbook` repositories remain available for their earlier Git histories. `TestRepo` is not part of this hub and is being removed as requested.
+The source content is preserved here before removing the five source repositories, as requested. Original README files are retained as `README.source.md` beside the new navigation guides. Consult the manifest for filename mappings and the source revisions that were copied.
 
 ## Keeping it useful
 
