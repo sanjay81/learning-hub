@@ -9,7 +9,9 @@ A single place for embedded-systems references and hands-on Git workflow exercis
 
 ## Repository origins
 
-This hub combines material from [IMPORTANT_LINKS](https://github.com/sanjay81/IMPORTANT_LINKS) and [DMAWorkbook](https://github.com/sanjay81/DMAWorkbook). Their original repositories are left untouched. The imported files are reorganized here; consult the source repositories for their earlier Git histories.
+This hub combines material from [IMPORTANT_LINKS](https://github.com/sanjay81/IMPORTANT_LINKS) and [DMAWorkbook](https://github.com/sanjay81/DMAWorkbook). It also consolidates the account's `github_acttion`, `work_2024`, and `devops` repositories. Those three repositories were checked and had no branches or tracked files, so there was no additional content to import. The `github_acttion` spelling is the actual GitHub repository name; no exact `github_action` repository exists under this account.
+
+The original `IMPORTANT_LINKS` and `DMAWorkbook` repositories remain available for their earlier Git histories. `TestRepo` is not part of this hub and is being removed as requested.
 
 ## Keeping it useful
 
